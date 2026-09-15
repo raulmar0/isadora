@@ -1,6 +1,6 @@
 # Isadora Gazzi
 
-A simple interactive directory for Isadora's French learning activities. The miniature francophone island is real Three.js geometry; the game artwork, stone texture, and WebGL fallback were created with Image Gen.
+A simple directory for Isadora's French learning activities. The francophone island and the game artwork were created with Image Gen.
 
 ## Development
 
@@ -34,6 +34,6 @@ Add an entry to `src/activities.ts` with its real destination, artwork, and ES/F
 
 ## Visual resources
 
-Generated shipping assets are in `public/images/`. Exact generation prompts and provenance are in [docs/image-prompts.md](docs/image-prompts.md). Models are authored in `src/components/world/createWorld.ts`. Image Gen produces textures and illustrations; it does not generate the mesh geometry.
+Generated shipping assets are in `public/images/`. Exact generation prompts and provenance are in [docs/image-prompts.md](docs/image-prompts.md). The island illustration was then divided by its own background so that the background becomes white; `mix-blend-mode: multiply` over the paper colour therefore leaves it invisible and the island keeps its soft shadow.
 
-DM Sans and Fraunces are self-hosted in `public/fonts/` with their SIL Open Font Licenses. The site respects reduced motion, offers keyboard island rotation (arrow keys and Home), and displays a generated still illustration when WebGL is unavailable.
+DM Sans and Fraunces are self-hosted in `public/fonts/` with their SIL Open Font Licenses. The site ships no canvas and no animation loop: the island is a still illustration with a description in both languages.

@@ -1,15 +1,11 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { activities } from './activities';
 import type { Locale } from './activities';
 import { Icon } from './components/Icon';
-import SceneBoundary from './components/SceneBoundary';
-
-const FrancophoneWorld = lazy(() => import('./components/FrancophoneWorld'));
 
 const translations = {
   es: {
-    scene: 'Isla francófona en 3D. Arrastra para girarla. París, Quebec y Dakar en un pequeño mundo.',
-    loading: 'Preparando un pequeño mundo…',
+    island: 'Una isla flotante en miniatura: la torre Eiffel y un café parisino, una mezquita de adobe, un baobab, casas quebequesas y un río con un puente de piedra.',
     soon: 'La próxima aventura está en camino.',
     more: 'Más juegos, pronto',
     skip: 'Ir a los juegos',
@@ -17,8 +13,7 @@ const translations = {
     available: 'À vous de jouer',
   },
   fr: {
-    scene: 'Île francophone en 3D. Faites glisser pour la tourner. Paris, Québec et Dakar dans un petit monde.',
-    loading: 'Un petit monde prend forme…',
+    island: 'Une île flottante miniature : la tour Eiffel et un café parisien, une mosquée de terre, un baobab, des maisons québécoises et une rivière franchie par un pont de pierre.',
     soon: 'La prochaine aventure se prépare.',
     more: 'D’autres jeux arrivent',
     skip: 'Aller aux jeux',
@@ -35,22 +30,8 @@ function initialLocale(): Locale {
   try { return localStorage.getItem(localeKey) === 'es' ? 'es' : 'fr'; } catch { return 'fr'; }
 }
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
-  useEffect(() => {
-    const media = matchMedia('(prefers-reduced-motion: reduce)');
-    const change = () => setReduced(media.matches);
-    media.addEventListener('change', change);
-    return () => media.removeEventListener('change', change);
-  }, []);
-  return reduced;
-}
-
 export default function App() {
   const [locale, setLocale] = useState<Locale>(initialLocale);
-  const [worldReady, setWorldReady] = useState(false);
-  const [worldError, setWorldError] = useState(false);
-  const reducedMotion = useReducedMotion();
   const t = translations[locale];
 
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
@@ -81,13 +62,10 @@ export default function App() {
           <h1 lang="fr">Bonjour,<br /><em>la curiosité.</em><span className="title-star" aria-hidden="true"><Icon name="spark" size={37} /></span></h1>
         </section>
 
-        <div className={`world-region ${worldReady ? 'is-ready' : ''} ${worldError ? 'has-error' : ''}`}>
+        <div className="world-region">
           <div className="world-orbit orbit-one" aria-hidden="true" />
           <div className="world-orbit orbit-two" aria-hidden="true" />
-          <div className="world-canvas" role="region" aria-label={t.scene}>
-            {(!worldReady || worldError) && <img className="world-poster" src="/images/island-poster.webp" alt="" />}
-            {!worldError && <SceneBoundary onError={() => setWorldError(true)}><Suspense fallback={null}><FrancophoneWorld reducedMotion={reducedMotion} onReady={() => setWorldReady(true)} onError={() => setWorldError(true)} /></Suspense></SceneBoundary>}
-          </div>
+          <img className="world-poster" src="/images/island-paper.webp" alt={t.island} width="1400" height="933" fetchPriority="high" />
         </div>
 
         <section className="activities" id="jeux" aria-label={t.games}>

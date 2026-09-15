@@ -28,7 +28,7 @@ Constraints: no other letters, no logos, no watermark, no interface, no hands, n
 
 ## Francophonie island poster
 
-- File: `public/images/island-poster.webp`
+- File: `public/images/island-paper.webp`
 - Original: `docs/artwork-originals/island-poster.png`
 - Intended use: loading and no-WebGL fallback for the interactive miniature island.
 - Delivery: WebP, landscape 1400 × 933, 186,688 bytes. Original: PNG, 1536 × 1024.
@@ -52,6 +52,7 @@ Constraints: no text, no logos, no watermark, no border, no interface, no people
 - File: `public/images/limestone-texture.webp`
 - Original: `docs/artwork-originals/limestone-texture.png`
 - Intended use: warm cream albedo map for the real-time island platform. Requested as seamlessly tileable; exact pixel-boundary seamlessness has not been mathematically verified.
+- **No longer shipped.** The real-time island was replaced by the still illustration, so this texture was removed from `public/images/`. The record is kept for provenance; the file is recoverable from git history.
 - Delivery: WebP, square 768 × 768, 138,532 bytes. Original: PNG, 1254 × 1254.
 
 ```text

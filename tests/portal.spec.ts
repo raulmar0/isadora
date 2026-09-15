@@ -35,23 +35,16 @@ test('the game card opens the original playable game', async ({ page }) => {
   await expect(page.locator('#remaining')).toHaveText('22 / 23');
 });
 
-test('without WebGL the fallback artwork and game link remain usable', async ({ page }) => {
-  await page.addInitScript(() => {
-    const getContext = HTMLCanvasElement.prototype.getContext;
-    Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
-      value(this: HTMLCanvasElement, context: string, ...args: unknown[]) {
-        if (context.includes('webgl')) return null;
-        return Reflect.apply(getContext, this, [context, ...args]);
-      },
-    });
-  });
+test('the island illustration loads, is described, and follows the language', async ({ page }) => {
   await page.goto('/');
-  const poster = page.locator('.world-poster');
-  await expect(poster).toBeVisible();
-  await expect.poll(() => poster.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await gameCard(page).click();
-  await expect(page).toHaveURL(/\/quiestce\/$/);
-  await expect(page.getByRole('button', { name: 'Nouvelle partie', exact: true })).toBeEnabled();
+  const island = page.locator('.world-poster');
+  await expect(island).toBeVisible();
+  // A broken or missing file still renders an <img>, so check the decoded bitmap.
+  await expect.poll(() => island.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(1400);
+  await expect(island).toHaveAttribute('alt', /tour Eiffel.+baobab/);
+
+  await page.getByRole('button', { name: 'Español' }).click();
+  await expect(island).toHaveAttribute('alt', /torre Eiffel.+baobab/);
 });
 
 for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
@@ -68,60 +61,29 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 
   });
 }
 
-// Dragging aside, the arrow keys and Home are the only way to move the island,
-// so the test has to see the scene actually redraw. Under reduced motion the
-// render loop settles and stops, which makes a new frame a reliable signal that
-// the key was handled; the canvas itself cannot be read back, since the renderer
-// keeps no drawing buffer.
-async function countFrames(page: Page) {
-  return page.evaluate(() => (window as unknown as { __frames: number }).__frames);
-}
-
-async function settledFrameCount(page: Page) {
-  let previous = -1;
-  await expect.poll(async () => {
-    const current = await countFrames(page);
-    const stable = current === previous;
-    previous = current;
-    return stable;
-  }, { timeout: 15_000 }).toBe(true);
-  return countFrames(page);
-}
-
-test('the arrow keys turn the island and Home recentres it', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
+// The page ships no WebGL and no animation now: nothing may request a canvas,
+// and the only remaining motion is the reduced-motion-aware card hover.
+test('the page renders without a canvas or an animation frame', async ({ page }) => {
   await page.addInitScript(() => {
-    const target = window as unknown as { __frames: number };
-    target.__frames = 0;
+    const target = window as unknown as { __rafs: number; __contexts: number };
+    target.__rafs = 0;
+    target.__contexts = 0;
     const request = window.requestAnimationFrame.bind(window);
-    window.requestAnimationFrame = callback => request(time => { target.__frames += 1; return callback(time); });
+    window.requestAnimationFrame = callback => { target.__rafs += 1; return request(callback); };
+    const getContext = HTMLCanvasElement.prototype.getContext;
+    Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+      value(this: HTMLCanvasElement, context: string, ...args: unknown[]) {
+        target.__contexts += 1;
+        return Reflect.apply(getContext, this, [context, ...args]);
+      },
+    });
   });
   await page.goto('/');
-  await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-
-  const island = page.locator('.francophone-world');
-  await island.focus();
-  await expect(island).toBeFocused();
-
-  const idle = await settledFrameCount(page);
-  await island.press('a');
-  await expect.poll(() => countFrames(page)).toBe(idle);
-
-  await island.press('ArrowLeft');
-  await expect.poll(() => countFrames(page)).toBeGreaterThan(idle);
-
-  const turned = await settledFrameCount(page);
-  await island.press('Home');
-  await expect.poll(() => countFrames(page)).toBeGreaterThan(turned);
-  await expect(island).toBeFocused();
-});
-
-test('reduced motion keeps the island and the games usable', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
-  await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-  await expect(page.locator('.world-poster')).toHaveCount(0);
-  await expect(gameCard(page)).toBeVisible();
-  await gameCard(page).click();
-  await expect(page).toHaveURL(/\/quiestce\/$/);
+  await expect(page.locator('.world-poster')).toBeVisible();
+  await page.waitForTimeout(1500);
+  expect(await page.evaluate(() => ({
+    canvases: document.querySelectorAll('canvas').length,
+    contexts: (window as unknown as { __contexts: number }).__contexts,
+    frames: (window as unknown as { __rafs: number }).__rafs,
+  }))).toEqual({ canvases: 0, contexts: 0, frames: 0 });
 });
