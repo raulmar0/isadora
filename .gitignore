@@ -2,3 +2,10 @@ node_modules/
 dist/
 .DS_Store
 .claude/
+public/quiestce/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/

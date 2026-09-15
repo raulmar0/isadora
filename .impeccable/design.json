@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T05:08:52.033Z",
+  "title": "Design System: Isadora Gazzi",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0111 89.72)",
+          "oklch(26.43% 0.0111 89.72)",
+          "oklch(37.86% 0.0111 89.72)",
+          "oklch(49.29% 0.0111 89.72)",
+          "oklch(60.71% 0.0111 89.72)",
+          "oklch(72.14% 0.0111 89.72)",
+          "oklch(83.57% 0.0111 89.72)",
+          "oklch(95.00% 0.0111 89.72)"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0643 247.58)",
+          "oklch(26.43% 0.0643 247.58)",
+          "oklch(37.86% 0.0643 247.58)",
+          "oklch(49.29% 0.0643 247.58)",
+          "oklch(60.71% 0.0643 247.58)",
+          "oklch(72.14% 0.0643 247.58)",
+          "oklch(83.57% 0.0643 247.58)",
+          "oklch(95.00% 0.0643 247.58)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Blue",
+        "tonalRamp": [
+          "oklch(15.00% 0.0838 247.50)",
+          "oklch(26.43% 0.0838 247.50)",
+          "oklch(37.86% 0.0838 247.50)",
+          "oklch(49.29% 0.0838 247.50)",
+          "oklch(60.71% 0.0838 247.50)",
+          "oklch(72.14% 0.0838 247.50)",
+          "oklch(83.57% 0.0838 247.50)",
+          "oklch(95.00% 0.0838 247.50)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.0149 115.06)",
+          "oklch(26.43% 0.0149 115.06)",
+          "oklch(37.86% 0.0149 115.06)",
+          "oklch(49.29% 0.0149 115.06)",
+          "oklch(60.71% 0.0149 115.06)",
+          "oklch(72.14% 0.0149 115.06)",
+          "oklch(83.57% 0.0149 115.06)",
+          "oklch(95.00% 0.0149 115.06)"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Gold",
+        "tonalRamp": [
+          "oklch(15.00% 0.1241 78.06)",
+          "oklch(26.43% 0.1241 78.06)",
+          "oklch(37.86% 0.1241 78.06)",
+          "oklch(49.29% 0.1241 78.06)",
+          "oklch(60.71% 0.1241 78.06)",
+          "oklch(72.14% 0.1241 78.06)",
+          "oklch(83.57% 0.1241 78.06)",
+          "oklch(95.00% 0.1241 78.06)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "tonalRamp": [
+          "oklch(15.00% 0.0082 91.48)",
+          "oklch(26.43% 0.0082 91.48)",
+          "oklch(37.86% 0.0082 91.48)",
+          "oklch(49.29% 0.0082 91.48)",
+          "oklch(60.71% 0.0082 91.48)",
+          "oklch(72.14% 0.0082 91.48)",
+          "oklch(83.57% 0.0082 91.48)",
+          "oklch(95.00% 0.0082 91.48)"
+        ]
+      },
+      "card-line": {
+        "role": "neutral",
+        "displayName": "Card Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.0175 110.31)",
+          "oklch(26.43% 0.0175 110.31)",
+          "oklch(37.86% 0.0175 110.31)",
+          "oklch(49.29% 0.0175 110.31)",
+          "oklch(60.71% 0.0175 110.31)",
+          "oklch(72.14% 0.0175 110.31)",
+          "oklch(83.57% 0.0175 110.31)",
+          "oklch(95.00% 0.0175 110.31)"
+        ]
+      },
+      "card-copy": {
+        "role": "neutral",
+        "displayName": "Card Copy",
+        "tonalRamp": [
+          "oklch(15.00% 0.0241 147.40)",
+          "oklch(26.43% 0.0241 147.40)",
+          "oklch(37.86% 0.0241 147.40)",
+          "oklch(49.29% 0.0241 147.40)",
+          "oklch(60.71% 0.0241 147.40)",
+          "oklch(72.14% 0.0241 147.40)",
+          "oklch(83.57% 0.0241 147.40)",
+          "oklch(95.00% 0.0241 147.40)"
+        ]
+      },
+      "intro-copy": {
+        "role": "neutral",
+        "displayName": "Intro Copy",
+        "tonalRamp": [
+          "oklch(15.00% 0.0201 178.76)",
+          "oklch(26.43% 0.0201 178.76)",
+          "oklch(37.86% 0.0201 178.76)",
+          "oklch(49.29% 0.0201 178.76)",
+          "oklch(60.71% 0.0201 178.76)",
+          "oklch(72.14% 0.0201 178.76)",
+          "oklch(83.57% 0.0201 178.76)",
+          "oklch(95.00% 0.0201 178.76)"
+        ]
+      },
+      "badge-paper": {
+        "role": "neutral",
+        "displayName": "Badge Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0189 93.66)",
+          "oklch(26.43% 0.0189 93.66)",
+          "oklch(37.86% 0.0189 93.66)",
+          "oklch(49.29% 0.0189 93.66)",
+          "oklch(60.71% 0.0189 93.66)",
+          "oklch(72.14% 0.0189 93.66)",
+          "oklch(83.57% 0.0189 93.66)",
+          "oklch(95.00% 0.0189 93.66)"
+        ]
+      },
+      "control-hover": {
+        "role": "secondary",
+        "displayName": "Control Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.0181 123.98)",
+          "oklch(26.43% 0.0181 123.98)",
+          "oklch(37.86% 0.0181 123.98)",
+          "oklch(49.29% 0.0181 123.98)",
+          "oklch(60.71% 0.0181 123.98)",
+          "oklch(72.14% 0.0181 123.98)",
+          "oklch(83.57% 0.0181 123.98)",
+          "oklch(95.00% 0.0181 123.98)"
+        ]
+      },
+      "language-hover": {
+        "role": "secondary",
+        "displayName": "Language Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.0176 117.30)",
+          "oklch(26.43% 0.0176 117.30)",
+          "oklch(37.86% 0.0176 117.30)",
+          "oklch(49.29% 0.0176 117.30)",
+          "oklch(60.71% 0.0176 117.30)",
+          "oklch(72.14% 0.0176 117.30)",
+          "oklch(83.57% 0.0176 117.30)",
+          "oklch(95.00% 0.0176 117.30)"
+        ]
+      },
+      "arrow-hover": {
+        "role": "secondary",
+        "displayName": "Arrow Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.0644 162.24)",
+          "oklch(26.43% 0.0644 162.24)",
+          "oklch(37.86% 0.0644 162.24)",
+          "oklch(49.29% 0.0644 162.24)",
+          "oklch(60.71% 0.0644 162.24)",
+          "oklch(72.14% 0.0644 162.24)",
+          "oklch(83.57% 0.0644 162.24)",
+          "oklch(95.00% 0.0644 162.24)"
+        ]
+      },
+      "world-limestone": {
+        "role": "neutral",
+        "displayName": "World Limestone",
+        "tonalRamp": [
+          "oklch(15.00% 0.0366 87.80)",
+          "oklch(26.43% 0.0366 87.80)",
+          "oklch(37.86% 0.0366 87.80)",
+          "oklch(49.29% 0.0366 87.80)",
+          "oklch(60.71% 0.0366 87.80)",
+          "oklch(72.14% 0.0366 87.80)",
+          "oklch(83.57% 0.0366 87.80)",
+          "oklch(95.00% 0.0366 87.80)"
+        ]
+      },
+      "world-edge": {
+        "role": "neutral",
+        "displayName": "World Edge",
+        "tonalRamp": [
+          "oklch(15.00% 0.0400 87.57)",
+          "oklch(26.43% 0.0400 87.57)",
+          "oklch(37.86% 0.0400 87.57)",
+          "oklch(49.29% 0.0400 87.57)",
+          "oklch(60.71% 0.0400 87.57)",
+          "oklch(72.14% 0.0400 87.57)",
+          "oklch(83.57% 0.0400 87.57)",
+          "oklch(95.00% 0.0400 87.57)"
+        ]
+      },
+      "world-ivory": {
+        "role": "neutral",
+        "displayName": "World Ivory",
+        "tonalRamp": [
+          "oklch(15.00% 0.0468 88.29)",
+          "oklch(26.43% 0.0468 88.29)",
+          "oklch(37.86% 0.0468 88.29)",
+          "oklch(49.29% 0.0468 88.29)",
+          "oklch(60.71% 0.0468 88.29)",
+          "oklch(72.14% 0.0468 88.29)",
+          "oklch(83.57% 0.0468 88.29)",
+          "oklch(95.00% 0.0468 88.29)"
+        ]
+      },
+      "world-cream": {
+        "role": "neutral",
+        "displayName": "World Cream",
+        "tonalRamp": [
+          "oklch(15.00% 0.0423 85.96)",
+          "oklch(26.43% 0.0423 85.96)",
+          "oklch(37.86% 0.0423 85.96)",
+          "oklch(49.29% 0.0423 85.96)",
+          "oklch(60.71% 0.0423 85.96)",
+          "oklch(72.14% 0.0423 85.96)",
+          "oklch(83.57% 0.0423 85.96)",
+          "oklch(95.00% 0.0423 85.96)"
+        ]
+      },
+      "world-coral": {
+        "role": "secondary",
+        "displayName": "World Coral",
+        "tonalRamp": [
+          "oklch(15.00% 0.1047 42.60)",
+          "oklch(26.43% 0.1047 42.60)",
+          "oklch(37.86% 0.1047 42.60)",
+          "oklch(49.29% 0.1047 42.60)",
+          "oklch(60.71% 0.1047 42.60)",
+          "oklch(72.14% 0.1047 42.60)",
+          "oklch(83.57% 0.1047 42.60)",
+          "oklch(95.00% 0.1047 42.60)"
+        ]
+      },
+      "world-ochre": {
+        "role": "secondary",
+        "displayName": "World Ochre",
+        "tonalRamp": [
+          "oklch(15.00% 0.1274 79.25)",
+          "oklch(26.43% 0.1274 79.25)",
+          "oklch(37.86% 0.1274 79.25)",
+          "oklch(49.29% 0.1274 79.25)",
+          "oklch(60.71% 0.1274 79.25)",
+          "oklch(72.14% 0.1274 79.25)",
+          "oklch(83.57% 0.1274 79.25)",
+          "oklch(95.00% 0.1274 79.25)"
+        ]
+      },
+      "world-blue": {
+        "role": "secondary",
+        "displayName": "World Blue",
+        "tonalRamp": [
+          "oklch(15.00% 0.0736 239.45)",
+          "oklch(26.43% 0.0736 239.45)",
+          "oklch(37.86% 0.0736 239.45)",
+          "oklch(49.29% 0.0736 239.45)",
+          "oklch(60.71% 0.0736 239.45)",
+          "oklch(72.14% 0.0736 239.45)",
+          "oklch(83.57% 0.0736 239.45)",
+          "oklch(95.00% 0.0736 239.45)"
+        ]
+      },
+      "world-teal": {
+        "role": "secondary",
+        "displayName": "World Teal",
+        "tonalRamp": [
+          "oklch(15.00% 0.0631 188.27)",
+          "oklch(26.43% 0.0631 188.27)",
+          "oklch(37.86% 0.0631 188.27)",
+          "oklch(49.29% 0.0631 188.27)",
+          "oklch(60.71% 0.0631 188.27)",
+          "oklch(72.14% 0.0631 188.27)",
+          "oklch(83.57% 0.0631 188.27)",
+          "oklch(95.00% 0.0631 188.27)"
+        ]
+      },
+      "world-dark": {
+        "role": "secondary",
+        "displayName": "World Dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.0427 184.03)",
+          "oklch(26.43% 0.0427 184.03)",
+          "oklch(37.86% 0.0427 184.03)",
+          "oklch(49.29% 0.0427 184.03)",
+          "oklch(60.71% 0.0427 184.03)",
+          "oklch(72.14% 0.0427 184.03)",
+          "oklch(83.57% 0.0427 184.03)",
+          "oklch(95.00% 0.0427 184.03)"
+        ]
+      },
+      "world-tower": {
+        "role": "secondary",
+        "displayName": "World Tower",
+        "tonalRamp": [
+          "oklch(15.00% 0.0926 60.78)",
+          "oklch(26.43% 0.0926 60.78)",
+          "oklch(37.86% 0.0926 60.78)",
+          "oklch(49.29% 0.0926 60.78)",
+          "oklch(60.71% 0.0926 60.78)",
+          "oklch(72.14% 0.0926 60.78)",
+          "oklch(83.57% 0.0926 60.78)",
+          "oklch(95.00% 0.0926 60.78)"
+        ]
+      },
+      "world-tree": {
+        "role": "secondary",
+        "displayName": "World Tree",
+        "tonalRamp": [
+          "oklch(15.00% 0.0812 126.77)",
+          "oklch(26.43% 0.0812 126.77)",
+          "oklch(37.86% 0.0812 126.77)",
+          "oklch(49.29% 0.0812 126.77)",
+          "oklch(60.71% 0.0812 126.77)",
+          "oklch(72.14% 0.0812 126.77)",
+          "oklch(83.57% 0.0812 126.77)",
+          "oklch(95.00% 0.0812 126.77)"
+        ]
+      },
+      "world-leaf": {
+        "role": "secondary",
+        "displayName": "World Leaf",
+        "tonalRamp": [
+          "oklch(15.00% 0.0777 122.01)",
+          "oklch(26.43% 0.0777 122.01)",
+          "oklch(37.86% 0.0777 122.01)",
+          "oklch(49.29% 0.0777 122.01)",
+          "oklch(60.71% 0.0777 122.01)",
+          "oklch(72.14% 0.0777 122.01)",
+          "oklch(83.57% 0.0777 122.01)",
+          "oklch(95.00% 0.0777 122.01)"
+        ]
+      },
+      "world-water": {
+        "role": "secondary",
+        "displayName": "World Water",
+        "tonalRamp": [
+          "oklch(15.00% 0.0590 205.77)",
+          "oklch(26.43% 0.0590 205.77)",
+          "oklch(37.86% 0.0590 205.77)",
+          "oklch(49.29% 0.0590 205.77)",
+          "oklch(60.71% 0.0590 205.77)",
+          "oklch(72.14% 0.0590 205.77)",
+          "oklch(83.57% 0.0590 205.77)",
+          "oklch(95.00% 0.0590 205.77)"
+        ]
+      },
+      "world-water-light": {
+        "role": "secondary",
+        "displayName": "World Water Light",
+        "tonalRamp": [
+          "oklch(15.00% 0.0297 175.15)",
+          "oklch(26.43% 0.0297 175.15)",
+          "oklch(37.86% 0.0297 175.15)",
+          "oklch(49.29% 0.0297 175.15)",
+          "oklch(60.71% 0.0297 175.15)",
+          "oklch(72.14% 0.0297 175.15)",
+          "oklch(83.57% 0.0297 175.15)",
+          "oklch(95.00% 0.0297 175.15)"
+        ]
+      },
+      "world-white": {
+        "role": "neutral",
+        "displayName": "World White",
+        "tonalRamp": [
+          "oklch(15.00% 0.0211 85.94)",
+          "oklch(26.43% 0.0211 85.94)",
+          "oklch(37.86% 0.0211 85.94)",
+          "oklch(49.29% 0.0211 85.94)",
+          "oklch(60.71% 0.0211 85.94)",
+          "oklch(72.14% 0.0211 85.94)",
+          "oklch(83.57% 0.0211 85.94)",
+          "oklch(95.00% 0.0211 85.94)"
+        ]
+      },
+      "world-trunk": {
+        "role": "secondary",
+        "displayName": "World Trunk",
+        "tonalRamp": [
+          "oklch(15.00% 0.0562 51.42)",
+          "oklch(26.43% 0.0562 51.42)",
+          "oklch(37.86% 0.0562 51.42)",
+          "oklch(49.29% 0.0562 51.42)",
+          "oklch(60.71% 0.0562 51.42)",
+          "oklch(72.14% 0.0562 51.42)",
+          "oklch(83.57% 0.0562 51.42)",
+          "oklch(95.00% 0.0562 51.42)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "French greeting."
+      },
+      "display-emphasis": {
+        "displayName": "Display Emphasis",
+        "purpose": "Lighter weight for the emphasized greeting phrase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Published game names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Introductory copy."
+      },
+      "card-body": {
+        "displayName": "Card Body",
+        "purpose": "Short activity descriptions."
+      },
+      "brand": {
+        "displayName": "Brand",
+        "purpose": "Teacher name."
+      },
+      "language-label": {
+        "displayName": "Language Label",
+        "purpose": "ES/FR options."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 8px 26px -15px #4d624638",
+        "purpose": "Low diffuse shadow beneath the published activity."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 18px 34px -18px #384d4e57",
+        "purpose": "Higher diffuse elevation on hover."
+      },
+      {
+        "name": "sticker",
+        "value": "0 3px 9px #5b4a2912",
+        "purpose": "A small paper sticker over the artwork."
+      },
+      {
+        "name": "monogram-paper-ring",
+        "value": "0 0 0 4px var(--paper)",
+        "purpose": "Separate the golden monogram dot from its border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "background .2s,transform .2s",
+        "purpose": "Circular scene-control hover."
+      },
+      {
+        "name": "card-transition",
+        "value": "transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s",
+        "purpose": "Tactile activity-card feedback."
+      },
+      {
+        "name": "artwork-transition",
+        "value": "transform .5s cubic-bezier(.2,.7,.3,1)",
+        "purpose": "Slow 1.04 artwork scale on card hover."
+      },
+      {
+        "name": "world-rotation",
+        "value": "1 - Math.exp(-delta * 9)",
+        "purpose": "Frame-independent easing toward the dragged rotation; bypassed for reduced motion."
+      },
+      {
+        "name": "world-sway",
+        "value": "Math.sin(animationTime * 0.22) * 0.035",
+        "purpose": "Small automatic rotation while motion is enabled; the timeline stops while paused."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "760px"
+      },
+      {
+        "name": "narrow-max",
+        "value": "370px"
+      },
+      {
+        "name": "short-desktop",
+        "value": "(min-width:1000px) and (max-height:820px)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "World control",
+      "kind": "button",
+      "refersTo": "world-button",
+      "description": "A reset control beside the interactive miniature.",
+      "html": "<button class=\"ds-world-button\" type=\"button\" aria-label=\"Restablecer vista\" title=\"Restablecer vista\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 10a8 8 0 1 1 1 7M4 4v6h6\"/></svg></button>",
+      "css": ".ds-world-button{width:35px;height:35px;border:1px solid #d8ded2;border-radius:50%;background:var(--paper,#f6f3eb);color:var(--ink,#284967);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}.ds-world-button:hover{background:#e4e9dc;transform:translateY(-2px)}.ds-world-button[aria-pressed=true]{background:var(--ink,#284967);color:var(--paper,#f6f3eb)}.ds-world-button:focus-visible,.ds-language button:focus-visible,.ds-card:focus-visible,.ds-brand:focus-visible{outline:3px solid var(--blue,#315f88);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-world-button{transition:none}.ds-world-button:hover{transform:none}}"
+    },
+    {
+      "name": "Pressed pause control",
+      "kind": "button",
+      "refersTo": "world-button-pressed",
+      "description": "The pause toggle fills with ink when the animation is paused.",
+      "html": "<button class=\"ds-world-button\" type=\"button\" aria-label=\"Reanudar animación\" title=\"Reanudar animación\" aria-pressed=\"true\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 5 10 7-10 7Z\"/></svg></button>",
+      "css": ".ds-world-button{width:35px;height:35px;border:1px solid #d8ded2;border-radius:50%;background:var(--paper,#f6f3eb);color:var(--ink,#284967);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}.ds-world-button:hover{background:#e4e9dc;transform:translateY(-2px)}.ds-world-button[aria-pressed=true]{background:var(--ink,#284967);color:var(--paper,#f6f3eb)}.ds-world-button:focus-visible,.ds-language button:focus-visible,.ds-card:focus-visible,.ds-brand:focus-visible{outline:3px solid var(--blue,#315f88);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-world-button{transition:none}.ds-world-button:hover{transform:none}}"
+    },
+    {
+      "name": "Language navigation",
+      "kind": "nav",
+      "refersTo": "language-option",
+      "description": "ES/FR options with a filled selected state.",
+      "html": "<div class=\"ds-language\" role=\"group\" aria-label=\"Idioma / Langue\"><button type=\"button\" lang=\"es\" aria-label=\"Español\" aria-pressed=\"true\">ES</button><button type=\"button\" lang=\"fr\" aria-label=\"Français\" aria-pressed=\"false\">FR</button></div>",
+      "css": ".ds-language{display:inline-flex;border:1px solid #d4d9d0;padding:4px;border-radius:24px;gap:2px}.ds-language button{width:37px;height:30px;border:0;background:transparent;color:var(--ink,#284967);border-radius:20px;font-family:\"DM Sans\",sans-serif;font-size:11px;font-weight:400;letter-spacing:.05em;cursor:pointer;transition:background .2s,color .2s}.ds-language button[aria-pressed=true]{background:var(--ink,#284967);color:var(--paper,#f6f3eb)}.ds-language button:hover:not([aria-pressed=true]){background:#e7eadd}.ds-world-button:focus-visible,.ds-language button:focus-visible,.ds-card:focus-visible,.ds-brand:focus-visible{outline:3px solid var(--blue,#315f88);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-language button{transition:none}}"
+    },
+    {
+      "name": "Activity card",
+      "kind": "card",
+      "refersTo": "activity-card",
+      "description": "One link with miniature artwork, title, localized copy and a visible action; horizontal on mobile.",
+      "html": "<a class=\"ds-card\" href=\"/quiestce/\" aria-label=\"Qui est-ce ? — ¡Vamos a jugar!\"><div class=\"ds-art\"><img src=\"/images/qui-est-ce.webp\" alt=\"Tablero de juego en miniatura con tarjetas de objetos y una tarjeta misteriosa.\"/></div><div class=\"ds-info\"><div class=\"ds-heading\"><h2 lang=\"fr\">Qui est-ce ?</h2><span class=\"ds-arrow\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></div><p>Un objeto secreto. Mil buenas preguntas.</p><div class=\"ds-bottom\"><span>Vocabulario · Expresión oral</span><span class=\"ds-action\">¡Vamos a jugar!</span></div></div></a>",
+      "css": ".ds-card{display:block;max-width:340px;background:#fffdf7;color:var(--ink,#284967);border-radius:15px;border:1px solid #dedfd2;overflow:hidden;text-decoration:none;font-family:\"DM Sans\",sans-serif;box-shadow:0 8px 26px -15px #4d624638;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}.ds-card:hover{transform:translateY(-5px) rotate(-.5deg);box-shadow:0 18px 34px -18px #384d4e57;border-color:#aebcb2}.ds-card:active{transform:translateY(-1px)}.ds-art{aspect-ratio:2.05;overflow:hidden;background:#f0deaa}.ds-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}.ds-card:hover .ds-art img{transform:scale(1.04)}.ds-info{padding:19px 20px 17px}.ds-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.ds-heading h2{font-family:var(--serif,Fraunces,Georgia,serif);font-size:30px;font-weight:500;letter-spacing:-.04em;line-height:1.15;margin:0}.ds-arrow{height:35px;width:35px;display:grid;place-items:center;border-radius:50%;background:var(--ink,#284967);color:var(--paper,#f6f3eb);transition:transform .3s,background .3s}.ds-card:hover .ds-arrow{transform:rotate(-35deg);background:#44745d}.ds-info p{font-size:11px;line-height:1.65;margin:8px 0 18px;color:#687569}.ds-bottom{border-top:1px solid #e4e5dc;padding-top:12px;display:flex;justify-content:space-between;gap:8px;font-size:9px;line-height:1.5;align-items:center;color:#687569}.ds-action{font-weight:600;color:var(--ink,#284967);white-space:nowrap}.ds-world-button:focus-visible,.ds-language button:focus-visible,.ds-card:focus-visible,.ds-brand:focus-visible{outline:3px solid var(--blue,#315f88);outline-offset:6px}@media(max-width:760px){.ds-card{display:grid;grid-template-columns:34% minmax(0,1fr);max-width:430px}.ds-art{aspect-ratio:auto;min-height:160px}.ds-art img{object-position:57% center}.ds-info{padding:17px 15px 15px}.ds-heading{gap:6px}.ds-heading h2{font-size:27px}.ds-arrow{width:29px;height:29px;flex-shrink:0}.ds-arrow svg{width:18px;height:18px}.ds-info p{font-size:10px;line-height:1.7;margin:8px 0 12px;max-width:175px}.ds-bottom{padding-top:10px;flex-direction:column;align-items:flex-start;gap:5px;font-size:8px}.ds-action{font-size:10px}}@media(max-width:370px){.ds-heading h2{font-size:24px}.ds-info{padding:15px 12px}.ds-arrow{width:25px;height:25px}}@media(prefers-reduced-motion:reduce){.ds-card,.ds-art img,.ds-arrow{transition:none}.ds-card:hover,.ds-card:hover .ds-art img,.ds-card:hover .ds-arrow{transform:none}}"
+    },
+    {
+      "name": "Player badge",
+      "kind": "chip",
+      "refersTo": "player-badge",
+      "description": "Noninteractive player metadata placed on activity artwork.",
+      "html": "<span class=\"ds-players\"><svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 4v2\"/></svg>2 jugadores</span>",
+      "css": ".ds-players{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:20px;background:#fffbed;font-family:\"DM Sans\",sans-serif;font-size:9px;color:#5c655a}"
+    },
+    {
+      "name": "Monogram",
+      "kind": "custom",
+      "refersTo": "brand-monogram",
+      "description": "The teacher’s lowercase initials with a golden dot separated by a paper ring.",
+      "html": "<a class=\"ds-brand\" href=\"/\" aria-label=\"Isadora Gazzi — inicio\"><span class=\"ds-monogram\" aria-hidden=\"true\">ig<span></span></span></a>",
+      "css": ".ds-brand{display:inline-flex;color:var(--ink,#284967);text-decoration:none}.ds-monogram{font-family:var(--serif,Fraunces,Georgia,serif);font-size:34px;line-height:1;letter-spacing:-.06em;position:relative;display:grid;place-items:center;width:52px;height:52px;border:1px solid #aebdb7;border-radius:50%;padding-bottom:5px;font-weight:500}.ds-monogram>span{width:8px;height:8px;border-radius:50%;position:absolute;right:0;top:3px;background:var(--gold,#e7b157);box-shadow:0 0 0 4px var(--paper,#f6f3eb)}.ds-world-button:focus-visible,.ds-language button:focus-visible,.ds-card:focus-visible,.ds-brand:focus-visible{outline:3px solid var(--blue,#315f88);outline-offset:6px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Un petit monde — a tactile miniature atlas",
+    "overview": "A tactile miniature atlas gives Isadora Gazzi’s directory a warm, curious personality. Cream paper surrounds a sculpted island with references to Paris, Québec and Dakar. Blue ink typography and small golden details connect the interface to the limestone, painted clay and soft daylight of the scene.\n\nThe composition is airy around the world and compact around actions. Fraunces gives greetings and game titles a literary voice; DM Sans keeps instructions and navigation direct. The material world extends through the generated game illustration, while semantic links and buttons keep activities usable during scene loading or WebGL failure.",
+    "keyCharacteristics": [
+      "Warm cream surfaces with blue ink and restrained golden accents.",
+      "Fraunces display typography paired with self-hosted DM Sans.",
+      "Real miniature geometry, diffuse shadows and quiet optional motion.",
+      "Small, tactile controls and a single clear link per published activity."
+    ],
+    "rules": [
+      {
+        "name": "The Ink and Material Rule",
+        "body": "Use ink and blue for interface meaning; keep the broader clay, foliage and water palette inside illustrated or sculpted subjects.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Fraunces for greetings, game titles and brief expressive signoffs; use DM Sans for navigation, instructions and actions.",
+        "section": "typography"
+      },
+      {
+        "name": "The Soft Contact Rule",
+        "body": "Ground tangible objects with diffuse contact shadows; use thin borders to separate interface surfaces.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep cream paper and blue ink as the interface foundation.",
+      "Do preserve the Fraunces and DM Sans pairing and the current font files.",
+      "Do use real geometry for the rotatable world and a companion poster while it loads or cannot render.",
+      "Do keep each published activity as one semantic link with a visible action.",
+      "Do preserve the compact horizontal activity card on mobile.",
+      "Do provide visible keyboard focus, scene reset, optional pause and reduced-motion behavior.",
+      "Do use localized ES/FR utility copy and mark enduring French phrases with their language."
+    ],
+    "donts": [
+      "Don't replace the miniature’s matte materials with glossy plastic or high-contrast noise.",
+      "Don't hide activity access behind interaction with the 3D world.",
+      "Don't present future activities as working links or empty app cards.",
+      "Don't apply decorative transforms when reduced motion is requested.",
+      "Don't treat the small metadata sizes as a general body-text scale.",
+      "Don't turn the current single-card page arrangement into a restriction on future published activities."
+    ]
+  }
+}

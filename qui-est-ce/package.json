@@ -1,0 +1,18 @@
+{
+  "name": "qui-est-ce",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Un jeu de devinettes en français pour jouer à deux en classe.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test tests/game.test.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "vite": "8.3.0"
+  }
+}
