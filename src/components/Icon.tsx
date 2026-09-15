@@ -1,10 +1,9 @@
 import type { CSSProperties } from 'react';
 
-type IconName = 'arrow' | 'globe' | 'pause' | 'play' | 'reset' | 'hand' | 'spark' | 'people' | 'plus';
+type IconName = 'arrow' | 'pause' | 'play' | 'reset' | 'hand' | 'spark' | 'people' | 'plus';
 
 const paths: Record<IconName, React.ReactNode> = {
   arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
-  globe: <><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></>,
   pause: <><path d="M9 6v12M15 6v12" /></>,
   play: <path d="m9 5 10 7-10 7Z" />,
   reset: <><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" /></>,

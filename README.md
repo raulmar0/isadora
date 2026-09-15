@@ -1,4 +1,4 @@
-# Isadora Gazzi — Un petit monde de français
+# Isadora Gazzi
 
 A simple interactive directory for Isadora's French learning activities. The miniature francophone island is real Three.js geometry; the game artwork, stone texture, and WebGL fallback were created with Image Gen.
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-The development command builds the original `qui-est-ce/` game and serves it at `/quiestce/`. The game source, assets and fonts were recovered unchanged from the existing project backup. The default portal language is Spanish, with a French switch.
+The development command builds the original `qui-est-ce/` game and serves it at `/quiestce/`. The game source, assets and fonts were recovered unchanged from the existing project backup. The default portal language is French, with a Spanish switch.
 
 ```sh
 npm run check

@@ -2,23 +2,23 @@ import { test, expect, type Page } from '@playwright/test';
 
 const gameCard = (page: Page) => page.getByRole('link', { name: /^Qui est-ce \? —/ });
 
-test('Spanish is the default and language changes survive reloads', async ({ page }) => {
+test('French is the default and language changes survive reloads', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-  await expect(page.getByRole('button', { name: 'Español' })).toHaveAttribute('aria-pressed', 'true');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
-
-  await page.getByRole('button', { name: 'Français' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
-  await page.reload();
   await expect(page.getByRole('button', { name: 'Français' })).toHaveAttribute('aria-pressed', 'true');
   await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
 
   await page.getByRole('button', { name: 'Español' }).click();
-  await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
   await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Español' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+
+  await page.getByRole('button', { name: 'Français' }).click();
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
 });
 
 test('the game card opens the original playable game', async ({ page }) => {
@@ -49,7 +49,7 @@ test('without WebGL the fallback artwork and game link remain usable', async ({ 
   const poster = page.locator('.world-poster');
   await expect(poster).toBeVisible();
   await expect.poll(() => poster.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(page.getByRole('button', { name: 'Restablecer vista' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Recentrer la vue' })).toHaveCount(0);
   await gameCard(page).click();
   await expect(page).toHaveURL(/\/quiestce\/$/);
   await expect(page.getByRole('button', { name: 'Nouvelle partie', exact: true })).toBeEnabled();
@@ -72,19 +72,19 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 
 test('animation can be paused and resumed', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-  await page.getByRole('button', { name: 'Pausar animación' }).click();
-  const resume = page.getByRole('button', { name: 'Reanudar animación' });
+  await page.getByRole('button', { name: 'Mettre l’animation en pause' }).click();
+  const resume = page.getByRole('button', { name: 'Reprendre l’animation' });
   await expect(resume).toHaveAttribute('aria-pressed', 'true');
   await resume.click();
-  await expect(page.getByRole('button', { name: 'Pausar animación' })).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByRole('button', { name: 'Mettre l’animation en pause' })).toHaveAttribute('aria-pressed', 'false');
 });
 
 test('reduced motion hides animation controls while keeping reset and games usable', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-  await expect(page.getByRole('button', { name: /Pausar animación|Reanudar animación/ })).toHaveCount(0);
-  const reset = page.getByRole('button', { name: 'Restablecer vista' });
+  await expect(page.getByRole('button', { name: /Mettre l’animation en pause|Reprendre l’animation/ })).toHaveCount(0);
+  const reset = page.getByRole('button', { name: 'Recentrer la vue' });
   await expect(reset).toBeEnabled();
   await reset.click();
   await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
