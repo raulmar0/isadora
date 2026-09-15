@@ -4,23 +4,20 @@ import { createWorld } from './world/createWorld';
 
 export interface FrancophoneWorldProps {
   reducedMotion: boolean;
-  paused: boolean;
-  resetKey: number;
   onReady?: () => void;
   onError?: () => void;
 }
 
 interface WorldController {
   wake: () => void;
-  reset: () => void;
 }
 
-export default function FrancophoneWorld({ reducedMotion, paused, resetKey, onReady, onError }: FrancophoneWorldProps) {
+export default function FrancophoneWorld({ reducedMotion, onReady, onError }: FrancophoneWorldProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const controlsRef = useRef<WorldController | null>(null);
-  const preferencesRef = useRef({ reducedMotion, paused });
+  const preferencesRef = useRef({ reducedMotion });
   const callbacksRef = useRef({ onReady, onError });
-  preferencesRef.current = { reducedMotion, paused };
+  preferencesRef.current = { reducedMotion };
   callbacksRef.current = { onReady, onError };
 
   useEffect(() => {
@@ -101,7 +98,7 @@ export default function FrancophoneWorld({ reducedMotion, paused, resetKey, onRe
       if (disposed || failed || !visible || document.hidden) return;
       const delta = Math.min(lastTime ? (now - lastTime) / 1000 : 1 / 60, 0.05);
       lastTime = now;
-      const motion = !preferencesRef.current.paused && !preferencesRef.current.reducedMotion;
+      const motion = !preferencesRef.current.reducedMotion;
       if (motion) animationTime += delta;
       const nextRotation = preferencesRef.current.reducedMotion
         ? targetRotation
@@ -135,13 +132,14 @@ export default function FrancophoneWorld({ reducedMotion, paused, resetKey, onRe
       }
     }
 
+    // The Home key is the only way left to recentre the island.
     function reset() {
       targetRotation = -0.08;
       animationTime = 0;
       if (preferencesRef.current.reducedMotion) rotation = targetRotation;
       wake();
     }
-    controlsRef.current = { wake, reset };
+    controlsRef.current = { wake };
 
     function resize() {
       const { width, height } = mount!.getBoundingClientRect();
@@ -258,8 +256,7 @@ export default function FrancophoneWorld({ reducedMotion, paused, resetKey, onRe
     };
   }, []);
 
-  useEffect(() => { controlsRef.current?.wake(); }, [reducedMotion, paused]);
-  useEffect(() => { controlsRef.current?.reset(); }, [resetKey]);
+  useEffect(() => { controlsRef.current?.wake(); }, [reducedMotion]);
 
   return (
     <div

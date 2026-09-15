@@ -8,8 +8,6 @@ const FrancophoneWorld = lazy(() => import('./components/FrancophoneWorld'));
 
 const translations = {
   es: {
-    drag: 'Arrastra y dale una vuelta al mundo',
-    pause: 'Pausar animación', resume: 'Reanudar animación', reset: 'Restablecer vista',
     scene: 'Isla francófona en 3D. Arrastra para girarla. París, Quebec y Dakar en un pequeño mundo.',
     loading: 'Preparando un pequeño mundo…',
     soon: 'La próxima aventura está en camino.',
@@ -19,8 +17,6 @@ const translations = {
     available: 'À vous de jouer',
   },
   fr: {
-    drag: 'Faites glisser pour faire le tour du monde',
-    pause: 'Mettre l’animation en pause', resume: 'Reprendre l’animation', reset: 'Recentrer la vue',
     scene: 'Île francophone en 3D. Faites glisser pour la tourner. Paris, Québec et Dakar dans un petit monde.',
     loading: 'Un petit monde prend forme…',
     soon: 'La prochaine aventure se prépare.',
@@ -52,8 +48,6 @@ function useReducedMotion() {
 
 export default function App() {
   const [locale, setLocale] = useState<Locale>(initialLocale);
-  const [paused, setPaused] = useState(false);
-  const [resetKey, setResetKey] = useState(0);
   const [worldReady, setWorldReady] = useState(false);
   const [worldError, setWorldError] = useState(false);
   const reducedMotion = useReducedMotion();
@@ -92,15 +86,8 @@ export default function App() {
           <div className="world-orbit orbit-two" aria-hidden="true" />
           <div className="world-canvas" role="region" aria-label={t.scene}>
             {(!worldReady || worldError) && <img className="world-poster" src="/images/island-poster.webp" alt="" />}
-            {!worldError && <SceneBoundary onError={() => setWorldError(true)}><Suspense fallback={null}><FrancophoneWorld reducedMotion={reducedMotion} paused={paused} resetKey={resetKey} onReady={() => setWorldReady(true)} onError={() => setWorldError(true)} /></Suspense></SceneBoundary>}
+            {!worldError && <SceneBoundary onError={() => setWorldError(true)}><Suspense fallback={null}><FrancophoneWorld reducedMotion={reducedMotion} onReady={() => setWorldReady(true)} onError={() => setWorldError(true)} /></Suspense></SceneBoundary>}
           </div>
-          {!worldError && <div className="world-toolbar">
-            <span className="drag-hint"><Icon name="hand" size={17} />{t.drag}</span>
-            <div className="world-buttons">
-              <button className="icon-button" type="button" aria-label={t.reset} title={t.reset} onClick={() => setResetKey(key => key + 1)}><Icon name="reset" size={18} /></button>
-              {!reducedMotion && <button className="icon-button" type="button" aria-label={paused ? t.resume : t.pause} title={paused ? t.resume : t.pause} aria-pressed={paused} onClick={() => setPaused(value => !value)}><Icon name={paused ? 'play' : 'pause'} size={18} /></button>}
-            </div>
-          </div>}
         </div>
 
         <section className="activities" id="jeux" aria-label={t.games}>

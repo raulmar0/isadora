@@ -49,7 +49,6 @@ test('without WebGL the fallback artwork and game link remain usable', async ({ 
   const poster = page.locator('.world-poster');
   await expect(poster).toBeVisible();
   await expect.poll(() => poster.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(page.getByRole('button', { name: 'Recentrer la vue' })).toHaveCount(0);
   await gameCard(page).click();
   await expect(page).toHaveURL(/\/quiestce\/$/);
   await expect(page.getByRole('button', { name: 'Nouvelle partie', exact: true })).toBeEnabled();
@@ -69,24 +68,60 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 
   });
 }
 
-test('animation can be paused and resumed', async ({ page }) => {
+// Dragging aside, the arrow keys and Home are the only way to move the island,
+// so the test has to see the scene actually redraw. Under reduced motion the
+// render loop settles and stops, which makes a new frame a reliable signal that
+// the key was handled; the canvas itself cannot be read back, since the renderer
+// keeps no drawing buffer.
+async function countFrames(page: Page) {
+  return page.evaluate(() => (window as unknown as { __frames: number }).__frames);
+}
+
+async function settledFrameCount(page: Page) {
+  let previous = -1;
+  await expect.poll(async () => {
+    const current = await countFrames(page);
+    const stable = current === previous;
+    previous = current;
+    return stable;
+  }, { timeout: 15_000 }).toBe(true);
+  return countFrames(page);
+}
+
+test('the arrow keys turn the island and Home recentres it', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.addInitScript(() => {
+    const target = window as unknown as { __frames: number };
+    target.__frames = 0;
+    const request = window.requestAnimationFrame.bind(window);
+    window.requestAnimationFrame = callback => request(time => { target.__frames += 1; return callback(time); });
+  });
   await page.goto('/');
   await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-  await page.getByRole('button', { name: 'Mettre l’animation en pause' }).click();
-  const resume = page.getByRole('button', { name: 'Reprendre l’animation' });
-  await expect(resume).toHaveAttribute('aria-pressed', 'true');
-  await resume.click();
-  await expect(page.getByRole('button', { name: 'Mettre l’animation en pause' })).toHaveAttribute('aria-pressed', 'false');
+
+  const island = page.locator('.francophone-world');
+  await island.focus();
+  await expect(island).toBeFocused();
+
+  const idle = await settledFrameCount(page);
+  await island.press('a');
+  await expect.poll(() => countFrames(page)).toBe(idle);
+
+  await island.press('ArrowLeft');
+  await expect.poll(() => countFrames(page)).toBeGreaterThan(idle);
+
+  const turned = await settledFrameCount(page);
+  await island.press('Home');
+  await expect.poll(() => countFrames(page)).toBeGreaterThan(turned);
+  await expect(island).toBeFocused();
 });
 
-test('reduced motion hides animation controls while keeping reset and games usable', async ({ page }) => {
+test('reduced motion keeps the island and the games usable', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
-  await expect(page.getByRole('button', { name: /Mettre l’animation en pause|Reprendre l’animation/ })).toHaveCount(0);
-  const reset = page.getByRole('button', { name: 'Recentrer la vue' });
-  await expect(reset).toBeEnabled();
-  await reset.click();
-  await expect(page.locator('.world-region')).toHaveClass(/is-ready/);
+  await expect(page.locator('.world-poster')).toHaveCount(0);
   await expect(gameCard(page)).toBeVisible();
+  await gameCard(page).click();
+  await expect(page).toHaveURL(/\/quiestce\/$/);
 });
