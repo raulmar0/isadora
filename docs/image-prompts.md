@@ -31,7 +31,7 @@ Constraints: no other letters, no logos, no watermark, no interface, no hands, n
 - File: `public/images/island-paper.webp`
 - Original: `docs/artwork-originals/island-poster.png`
 - Intended use: loading and no-WebGL fallback for the interactive miniature island.
-- Delivery: WebP, landscape 1400 × 933, 186,688 bytes. Original: PNG, 1536 × 1024.
+- Delivery: WebP, landscape 1400 × 933, 195,856 bytes. Original: PNG, 1536 × 1024.
 
 ```text
 Use case: stylized-concept
