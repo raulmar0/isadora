@@ -28,10 +28,30 @@ Constraints: no other letters, no logos, no watermark, no interface, no hands, n
 
 ## Francophonie island poster
 
-- File: `public/images/island-paper.webp`
-- Original: `docs/artwork-originals/island-poster.png`
-- Intended use: loading and no-WebGL fallback for the interactive miniature island.
-- Delivery: WebP, landscape 1400 × 933, 195,856 bytes. Original: PNG, 1536 × 1024.
+- Files: `public/images/island-{700,900,1100}.webp`
+- Original: `docs/artwork-originals/island-poster.png` (PNG, 1536 × 1024)
+- Intended use: the hero of the directory, and its LCP element.
+- Delivery: a WebP `srcset` of 69,798 / 88,504 / 112,566 bytes, built by
+  `npm run build:poster` — not by the Sharp pipeline described above. Run it after
+  touching the original; `--check` reports whether the files on disk are current.
+  The widths and the `sizes` they answer to are derived in `src/poster.ts`.
+
+Two things about this asset are load-bearing, and both are explained at length in
+`scripts/build-island-poster.mjs`:
+
+- **Its background is white, not cream.** Every channel is divided by a bilinear
+  estimate of the artwork's own cream background so that `mix-blend-mode: multiply`
+  over the paper reproduces the original colour. A border pixel that is not pure
+  white therefore shows up as a straight seam against the page.
+- **The quantiser does not respect a white border just because it was given one.**
+  It hands back 253 on some (width, quality) pairs and not monotonically in
+  quality: 900px survives q86, 1100px does not. The build script checks every
+  width after decoding and walks up the quality ladder until the borders come
+  back clean, which is why the three files are encoded at different qualities.
+
+The next island artwork needs at least 8% of empty margin on all four sides, with
+the cast shadow ending inside the frame. This one's runs off the left edge, and a
+fade can hide the truncation but cannot give the shadow back.
 
 ```text
 Use case: stylized-concept

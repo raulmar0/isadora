@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { activities } from './activities';
 import type { Locale } from './activities';
 import { Icon } from './components/Icon';
+import { POSTER_HEIGHT, POSTER_SIZES, POSTER_SRC, POSTER_SRCSET, POSTER_WIDTH } from './poster';
 
 const translations = {
   es: {
@@ -26,14 +27,19 @@ const translations = {
 // language nobody chose and would keep old visitors away from the default.
 const localeKey = 'isadora-langue';
 
-function initialLocale(): Locale {
+function storedLocale(): Locale {
   try { return localStorage.getItem(localeKey) === 'es' ? 'es' : 'fr'; } catch { return 'fr'; }
 }
 
 export default function App() {
-  const [locale, setLocale] = useState<Locale>(initialLocale);
+  // Always start in French, the way the prerendered HTML does. Reading
+  // localStorage here instead would make the first client render disagree with
+  // the markup the server wrote, and hydration would throw the whole tree away.
+  // A visitor who once chose Spanish gets it applied right after hydration.
+  const [locale, setLocale] = useState<Locale>('fr');
   const t = translations[locale];
 
+  useEffect(() => { setLocale(storedLocale()); }, []);
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
 
   // Only a deliberate choice is remembered.
@@ -65,7 +71,7 @@ export default function App() {
         <div className="world-region">
           <div className="world-orbit orbit-one" aria-hidden="true" />
           <div className="world-orbit orbit-two" aria-hidden="true" />
-          <img className="world-poster" src="/images/island-paper.webp" alt={t.island} width="1400" height="933" fetchPriority="high" />
+          <img className="world-poster" src={POSTER_SRC} srcSet={POSTER_SRCSET} sizes={POSTER_SIZES} alt={t.island} width={POSTER_WIDTH} height={POSTER_HEIGHT} fetchPriority="high" />
         </div>
 
         <section className="activities" id="jeux" aria-label={t.games}>
@@ -73,7 +79,9 @@ export default function App() {
             const copy = activity.copy[locale];
             return <a className="activity-card" href={activity.href} key={activity.id} aria-label={`${activity.title} — ${copy.action}`}>
               <div className="activity-art">
-                <img src={activity.image} alt={copy.imageAlt} width="1536" height="1024" fetchPriority="high" />
+                {/* No fetchPriority here: it put 42 KB in the same high-priority
+                    queue as the island, which is the LCP element. */}
+                <img src={activity.image} alt={copy.imageAlt} width="900" height="600" />
                 <span className="activity-sticker" lang="fr">{t.available}<Icon name="spark" size={12} /></span>
                 <span className="players"><Icon name="people" size={13} />{copy.players}</span>
               </div>

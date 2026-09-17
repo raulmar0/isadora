@@ -1,5 +1,5 @@
 @font-face{font-family:'DM Sans';src:url('/fonts/dm-sans-latin.woff2') format('woff2');font-style:normal;font-weight:100 1000;font-display:swap}
-@font-face{font-family:Fraunces;src:url('/fonts/fraunces-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url('/fonts/fraunces-subset.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
 
 :root{font-family:'DM Sans',sans-serif;color:#284967;background:#f6f3eb;font-synthesis:none;font-optical-sizing:auto;--paper:#f6f3eb;--ink:#284967;--muted:#687573;--blue:#315f88;--line:#dcded3;--gold:#e7b157;--serif:Fraunces,Georgia,serif}
 *{box-sizing:border-box}

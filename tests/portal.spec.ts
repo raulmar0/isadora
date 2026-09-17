@@ -40,7 +40,11 @@ test('the island illustration loads, is described, and follows the language', as
   const island = page.locator('.world-poster');
   await expect(island).toBeVisible();
   // A broken or missing file still renders an <img>, so check the decoded bitmap.
-  await expect.poll(() => island.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(1400);
+  // Which candidate srcset picks depends on the viewport, so assert it decoded
+  // and that it is one of ours rather than pinning a width.
+  await expect.poll(() => island.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  expect(await island.evaluate((image: HTMLImageElement) => image.currentSrc))
+    .toMatch(/\/images\/island-(700|900|1100)\.webp$/);
   await expect(island).toHaveAttribute('alt', /tour Eiffel.+baobab/);
 
   await page.getByRole('button', { name: 'Español' }).click();

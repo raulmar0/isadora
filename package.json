@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/prepare-game.mjs && vite --host 0.0.0.0",
-    "build": "tsc -b && node scripts/prepare-game.mjs && vite build",
+    "build": "tsc -b && node scripts/prepare-game.mjs && vite build && node scripts/prerender.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "check": "tsc -b",
     "test": "npm test --prefix qui-est-ce",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "build:poster": "node scripts/build-island-poster.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
