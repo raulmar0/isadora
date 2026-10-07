@@ -42,7 +42,8 @@ class SoundManager {
         }
       }
       if (this.ctx && this.ctx.state === "suspended") {
-        this.ctx.resume();
+        // Some devices refuse to start audio (no output, silent mode): stay quiet.
+        this.ctx.resume().catch(() => {});
       }
       return Boolean(this.ctx);
     } catch {
@@ -118,6 +119,28 @@ class SoundManager {
         gain.connect(this.ctx.destination);
         osc.start(time);
         osc.stop(time + 0.35);
+      });
+    } catch {
+      /* ignore audio error */
+    }
+  }
+
+  /** A soft falling pair: the round is over, without the fanfare of a record. */
+  playEnd() {
+    if (!this.init()) return;
+    try {
+      [659.25, 523.25].forEach((freq, idx) => {
+        const time = this.ctx.currentTime + idx * 0.14;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, time);
+        gain.gain.setValueAtTime(0.1, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(time);
+        osc.stop(time + 0.32);
       });
     } catch {
       /* ignore audio error */

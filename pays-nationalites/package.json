@@ -8,9 +8,19 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/game.test.js"
+    "test": "node --test tests/game.test.js",
+    "build:map": "node scripts/build-map.mjs",
+    "build:flags": "node scripts/build-flags.mjs"
   },
   "devDependencies": {
-    "vite": "8.3.0"
+    "d3-geo": "^3.1.1",
+    "d3-geo-projection": "^4.0.0",
+    "flag-icons": "^7.5.0",
+    "polylabel": "^2.1.0",
+    "svgo": "^4.1.0",
+    "topojson-client": "^3.1.0",
+    "topojson-simplify": "^3.0.3",
+    "vite": "8.3.0",
+    "world-atlas": "^2.0.2"
   }
 }

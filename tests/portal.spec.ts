@@ -46,11 +46,11 @@ test('the countries card opens the timed map game', async ({ page }) => {
   await pays(page).click();
   await expect(page).toHaveURL(/\/pays\/$/);
   await expect(page.getByRole('heading', { name: 'Pays et nationalités', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Nouvelle partie' }).click();
-  await expect(page.locator('#guess')).toBeVisible();
-  await page.locator('#guess').fill('français');
-  await page.locator('form[data-action="guess"]').evaluate((form: HTMLFormElement) => form.requestSubmit());
-  await expect(page.locator('.map-pin.is-found[data-pin="france"]')).toBeVisible();
+  await page.getByRole('button', { name: 'Commencer' }).click();
+  const guess = page.getByLabel('Pays ou nationalité');
+  await expect(guess).toBeFocused();
+  await guess.pressSequentially('française');
+  await expect(page.locator('.label.is-found[data-code="fr"]')).toHaveText('la France');
   await expect(page.locator('[data-score]')).toHaveText('1');
 });
 
