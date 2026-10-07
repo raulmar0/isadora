@@ -12,7 +12,7 @@ Students of Isadora Gazzi, a French teacher who creates interactive learning con
 A central directory that gives students immediate access to Isadora's interactive apps.
 
 ## Capabilities and Constraints
-- The only current app is « Qui est-ce ? ». More apps will be added later.
+- Published apps: « Qui est-ce ? » and « Pays et nationalités ». More apps may be added later.
 - The directory should be simple, immersive, interactive, and preferably 3D.
 - Use image generation for beautiful visual assets and textures.
 - The existing game was found in this project's local backup, with its documented destination /quiestce/. It is restored and built from its original source.

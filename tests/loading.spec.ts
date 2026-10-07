@@ -101,7 +101,7 @@ test('every glyph set in Fraunces is inside the subset', async ({ page }) => {
     })) used.add(character);
   }
 
-  const subset = new Set(' ,-.?BQacegijlnorstué');
+  const subset = new Set(' ,-.?BPQacegijlnorstuyé');
   const missing = [...used].filter(character => !subset.has(character)).sort();
   expect(missing, `add these to the Fraunces subset in docs/image-prompts.md and regenerate the woff2: ${missing.join('')}`).toEqual([]);
 });

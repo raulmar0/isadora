@@ -24,4 +24,26 @@ export const activities = [
       },
     },
   },
+  {
+    id: 'pays-nationalites',
+    href: '/pays/',
+    title: 'Pays et nationalités',
+    image: '/images/pays-nationalites.svg',
+    copy: {
+      es: {
+        subtitle: 'Un minuto. Países con artículo, nacionalidades en masculino y femenino.',
+        category: 'Vocabulario · Geografía',
+        players: '1 jugador',
+        action: '¡Vamos a jugar!',
+        imageAlt: 'Mapa en el centro rodeado de banderas con nacionalidades en francés.',
+      },
+      fr: {
+        subtitle: 'Une minute. Pays avec article, nationalités au masculin et au féminin.',
+        category: 'Vocabulaire · Géographie',
+        players: '1 joueur',
+        action: 'On joue ?',
+        imageAlt: 'Une carte au centre entourée de drapeaux avec les nationalités en français.',
+      },
+    },
+  },
 ];

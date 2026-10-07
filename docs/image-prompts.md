@@ -87,3 +87,8 @@ Color palette: warm pale cream stone, base approximately #f2e5cb with very subtl
 Materials/textures: tiny pores, fine soft grain, subtle organic cloudy patches. Very low contrast.
 Constraints: seamless tileable boundaries, no visible masonry joints or tile grid, no cracks, no deep cavities, no objects, no text, no borders, no watermark. Uniform scale and tone across all edges. This is a usable texture map, not a render of a slab.
 ```
+
+
+## Fraunces subset
+
+Portal titles and greeting use a subsetted `public/fonts/fraunces-subset.woff2`. Glyphs: ` ,-.?BPQacegijlnorstuyé`. Regenerate from Google Fonts with that `&text=` set when a new Fraunces title is added; update `tests/loading.spec.ts` in the same change.

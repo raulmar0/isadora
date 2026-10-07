@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-The development command builds the original `qui-est-ce/` game and serves it at `/quiestce/`. The game source, assets and fonts were recovered unchanged from the existing project backup. The default portal language is French, with a Spanish switch.
+The development command builds `qui-est-ce/` (at `/quiestce/`) and `pays-nationalites/` (at `/pays/`). The game source, assets and fonts were recovered unchanged from the existing project backup. The default portal language is French, with a Spanish switch.
 
 ```sh
 npm run check

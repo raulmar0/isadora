@@ -4,15 +4,19 @@ import react from '@vitejs/plugin-react';
 import { POSTER_SIZES, POSTER_SRCSET } from './src/poster';
 
 function serveGameDirectory(server: ViteDevServer | PreviewServer) {
+  const games = ['/quiestce', '/pays'];
   server.middlewares.use((request, response, next) => {
     const [path, query] = (request.url ?? '').split('?');
-    if (path === '/quiestce') {
-      response.writeHead(307, { Location: `/quiestce/${query ? `?${query}` : ''}` });
-      response.end();
-      return;
-    }
-    if (path === '/quiestce/') {
-      request.url = `/quiestce/index.html${query ? `?${query}` : ''}`;
+    for (const game of games) {
+      if (path === game) {
+        response.writeHead(307, { Location: `${game}/${query ? `?${query}` : ''}` });
+        response.end();
+        return;
+      }
+      if (path === `${game}/`) {
+        request.url = `${game}/index.html${query ? `?${query}` : ''}`;
+        break;
+      }
     }
     next();
   });

@@ -8,7 +8,7 @@
     "build": "tsc -b && node scripts/prepare-game.mjs && vite build && node scripts/prerender.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "check": "tsc -b",
-    "test": "npm test --prefix qui-est-ce",
+    "test": "npm test --prefix qui-est-ce && npm test --prefix pays-nationalites",
     "test:e2e": "playwright test",
     "build:poster": "node scripts/build-island-poster.mjs"
   },

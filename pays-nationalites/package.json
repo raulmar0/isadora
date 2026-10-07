@@ -1,0 +1,16 @@
+{
+  "name": "pays-nationalites",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Nomme pays et nationalités en français : carte au centre, drapeaux autour, une minute.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test tests/game.test.js"
+  },
+  "devDependencies": {
+    "vite": "8.3.0"
+  }
+}

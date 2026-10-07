@@ -3,6 +3,7 @@ dist/
 .DS_Store
 .claude/
 public/quiestce/
+public/pays/
 test-results/
 playwright-report/
 *.tsbuildinfo

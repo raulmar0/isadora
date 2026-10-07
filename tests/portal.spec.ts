@@ -1,30 +1,35 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const gameCard = (page: Page) => page.getByRole('link', { name: /^Qui est-ce \? —/ });
+const quiEstCe = (page: Page) => page.getByRole('link', { name: /^Qui est-ce \? —/ });
+const pays = (page: Page) => page.getByRole('link', { name: /^Pays et nationalités —/ });
 
 test('French is the default and language changes survive reloads', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
   await expect(page.getByRole('button', { name: 'Français' })).toHaveAttribute('aria-pressed', 'true');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
+  await expect(quiEstCe(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
+  await expect(pays(page)).toHaveAccessibleName('Pays et nationalités — On joue ?');
 
   await page.getByRole('button', { name: 'Español' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+  await expect(quiEstCe(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+  await expect(pays(page)).toHaveAccessibleName('Pays et nationalités — ¡Vamos a jugar!');
   await page.reload();
   await expect(page.getByRole('button', { name: 'Español' })).toHaveAttribute('aria-pressed', 'true');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+  await expect(quiEstCe(page)).toHaveAccessibleName('Qui est-ce ? — ¡Vamos a jugar!');
+  await expect(pays(page)).toHaveAccessibleName('Pays et nationalités — ¡Vamos a jugar!');
 
   await page.getByRole('button', { name: 'Français' }).click();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
-  await expect(gameCard(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
+  await expect(quiEstCe(page)).toHaveAccessibleName('Qui est-ce ? — On joue ?');
+  await expect(pays(page)).toHaveAccessibleName('Pays et nationalités — On joue ?');
 });
 
 test('the game card opens the original playable game', async ({ page }) => {
   await page.goto('/');
-  await expect(gameCard(page)).toHaveAttribute('href', '/quiestce/');
-  await gameCard(page).click();
+  await expect(quiEstCe(page)).toHaveAttribute('href', '/quiestce/');
+  await quiEstCe(page).click();
   await expect(page).toHaveURL(/\/quiestce\/$/);
   await expect(page.getByRole('heading', { name: 'Qui est-ce ? — Le jeu des objets', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Nouvelle partie', exact: true }).click();
@@ -35,13 +40,24 @@ test('the game card opens the original playable game', async ({ page }) => {
   await expect(page.locator('#remaining')).toHaveText('22 / 23');
 });
 
+test('the countries card opens the timed map game', async ({ page }) => {
+  await page.goto('/');
+  await expect(pays(page)).toHaveAttribute('href', '/pays/');
+  await pays(page).click();
+  await expect(page).toHaveURL(/\/pays\/$/);
+  await expect(page.getByRole('heading', { name: 'Pays et nationalités', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Nouvelle partie' }).click();
+  await expect(page.locator('#guess')).toBeVisible();
+  await page.locator('#guess').fill('français');
+  await page.locator('form[data-action="guess"]').evaluate((form: HTMLFormElement) => form.requestSubmit());
+  await expect(page.locator('.map-pin.is-found[data-pin="france"]')).toBeVisible();
+  await expect(page.locator('[data-score]')).toHaveText('1');
+});
+
 test('the island illustration loads, is described, and follows the language', async ({ page }) => {
   await page.goto('/');
   const island = page.locator('.world-poster');
   await expect(island).toBeVisible();
-  // A broken or missing file still renders an <img>, so check the decoded bitmap.
-  // Which candidate srcset picks depends on the viewport, so assert it decoded
-  // and that it is one of ours rather than pinning a width.
   await expect.poll(() => island.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   expect(await island.evaluate((image: HTMLImageElement) => image.currentSrc))
     .toMatch(/\/images\/island-(700|900|1100)\.webp$/);
@@ -55,18 +71,17 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 
   test(`the directory fits a ${viewport.width}×${viewport.height} viewport`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/');
-    await expect(gameCard(page)).toBeVisible();
+    await expect(quiEstCe(page)).toBeVisible();
+    await expect(pays(page)).toBeVisible();
     await expect.poll(() => page.evaluate(() =>
       document.documentElement.scrollWidth - window.innerWidth,
     )).toBeLessThanOrEqual(1);
-    await gameCard(page).scrollIntoViewIfNeeded();
-    await expect(gameCard(page)).toBeInViewport();
+    await pays(page).scrollIntoViewIfNeeded();
+    await expect(pays(page)).toBeInViewport();
     await expect(page.getByRole('button', { name: 'Français' })).toBeEnabled();
   });
 }
 
-// The page ships no WebGL and no animation now: nothing may request a canvas,
-// and the only remaining motion is the reduced-motion-aware card hover.
 test('the page renders without a canvas or an animation frame', async ({ page }) => {
   await page.addInitScript(() => {
     const target = window as unknown as { __rafs: number; __contexts: number };

@@ -31,11 +31,13 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             qui-est-ce/package-lock.json
+            pays-nationalites/package-lock.json
 
       - name: Instalar dependencias
         run: |
           npm ci
           npm ci --prefix qui-est-ce
+          npm ci --prefix pays-nationalites
 
       - name: Verificar el juego
         run: npm test

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <rect width="900" height="600" fill="#f3e9c9"/>
+  <rect x="70" y="55" width="760" height="490" rx="36" fill="#315f88"/>
+  <rect x="98" y="86" width="704" height="428" rx="28" fill="#f7f3e7"/>
+  <!-- soft map oval -->
+  <ellipse cx="450" cy="300" rx="210" ry="145" fill="#e7ebdc" stroke="#cfc8b4" stroke-width="3"/>
+  <path d="M300 250c40-55 140-70 210-40 25 10 45 35 70 35s55-25 90-15 70 35 95 25c35-10 70 15 85 50-15 45-60 70-105 78-50 8-90-15-130-8-35 8-60 42-105 42-55 0-95-35-120-75-18-28-18-62-20-92z" fill="#d5deca"/>
+  <path d="M520 215c50-18 120 0 150 35 25 28 40 70 25 105-25 42-85 60-135 50-42-8-75-42-85-85-8-35 10-78 45-105z" fill="#ccd8c2"/>
+  <!-- found pin -->
+  <circle cx="430" cy="270" r="10" fill="#d48768"/>
+  <rect x="392" y="284" width="92" height="24" rx="12" fill="#fffdf7"/>
+  <text x="438" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#284967">la France</text>
+  <!-- orbit flags as rounded cards -->
+  <g font-size="28">
+    <rect x="150" y="120" width="120" height="54" rx="16" fill="#fffdf7"/>
+    <text x="168" y="156">🇫🇷</text>
+    <text x="210" y="142" font-family="DM Sans, sans-serif" font-size="11" fill="#397570">français / …</text>
+    <text x="210" y="158" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">la France</text>
+
+    <rect x="630" y="130" width="120" height="54" rx="16" fill="#fffdf7"/>
+    <text x="648" y="166">🇨🇦</text>
+    <text x="690" y="152" font-family="DM Sans, sans-serif" font-size="11" fill="#687569">· · ·</text>
+    <text x="690" y="168" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">?</text>
+
+    <rect x="145" y="400" width="120" height="54" rx="16" fill="#fffdf7"/>
+    <text x="163" y="436">🇸🇳</text>
+    <text x="205" y="422" font-family="DM Sans, sans-serif" font-size="11" fill="#687569">· · ·</text>
+    <text x="205" y="438" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">?</text>
+
+    <rect x="635" y="390" width="120" height="54" rx="16" fill="#fffbed" stroke="#b9cbb8"/>
+    <text x="653" y="426">🇯🇵</text>
+    <text x="695" y="412" font-family="DM Sans, sans-serif" font-size="11" fill="#397570">japonais / …</text>
+    <text x="695" y="428" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">le Japon</text>
+
+    <rect x="390" y="95" width="120" height="54" rx="16" fill="#fffdf7"/>
+    <text x="408" y="131">🇪🇸</text>
+    <text x="450" y="117" font-family="DM Sans, sans-serif" font-size="11" fill="#687569">· · ·</text>
+    <text x="450" y="133" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">?</text>
+
+    <rect x="390" y="450" width="120" height="54" rx="16" fill="#fffdf7"/>
+    <text x="408" y="486">🇧🇷</text>
+    <text x="450" y="472" font-family="DM Sans, sans-serif" font-size="11" fill="#687569">· · ·</text>
+    <text x="450" y="488" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#284967">?</text>
+  </g>
+  <!-- coral mystery sticker -->
+  <rect x="740" y="250" width="58" height="72" rx="12" fill="#d48768"/>
+  <text x="769" y="295" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#fff8e9">?</text>
+</svg>
