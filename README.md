@@ -1,6 +1,6 @@
 # Isadora Gazzi
 
-A simple directory for Isadora's French learning activities. The francophone island and the game artwork were created with Image Gen.
+A simple directory for Isadora's French learning activities. The francophone island and the Qui est-ce ? artwork were created with Image Gen; the Pays et nationalités card is rendered from the game's own map and flags.
 
 ## Development
 
@@ -11,18 +11,18 @@ npm ci
 npm run dev
 ```
 
-The development command builds `qui-est-ce/` (at `/quiestce/`) and `pays-nationalites/` (at `/pays/`). The game source, assets and fonts were recovered unchanged from the existing project backup. The default portal language is French, with a Spanish switch.
+The development command builds `qui-est-ce/` (at `/quiestce/`, recovered unchanged from the project backup) and `pays-nationalites/` (at `/pays/`; how its map and flags are generated, and their licences, are in [pays-nationalites/README.md](pays-nationalites/README.md)). The default portal language is French, with a Spanish switch.
 
 ```sh
 npm run check
 npm test
-npm run test:e2e
 npm run build
+npm run test:e2e
 ```
 
-Before running browser tests for the first time, install Chromium with `npx playwright install --with-deps chromium`.
+Browser tests run against `dist/`, so build first. Before running them for the first time, install Chromium with `npx playwright install --with-deps chromium`. CI runs Chromium only; `npx playwright test -c playwright.cross.config.ts` runs the same suite in Firefox, WebKit and an iPhone viewport (install those browsers with `npx playwright install firefox webkit`).
 
-The production output is in `dist/`, including the original game. Serve this directory at the root of a static website. No backend or API keys are needed at runtime. Publication is not performed by the build command.
+The production output is in `dist/`, including both games. Serve this directory at the root of a static website. No backend or API keys are needed at runtime. Publication is not performed by the build command.
 
 ## Publication
 

@@ -1,0 +1,5 @@
+{
+  "source": "Rendered by scripts/build-pays-card.mjs from the game itself: the Natural Earth map projected in pays-nationalites/src/map-data.js and the flag-icons flags in pays-nationalites/public/flags.",
+  "width": 900,
+  "height": 600
+}
