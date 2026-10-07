@@ -144,3 +144,19 @@ describe("round flow", () => {
     assert.equal(applyGuess(round, "France").result, "idle");
   });
 });
+
+describe("classroom pedagogy & variants", () => {
+  it("detects wrong-article input and still flags the country with guidance", () => {
+    const guess = matchAnswer("le France");
+    assert.ok(guess);
+    assert.equal(guess.id, "france");
+    assert.equal(guess.wrongArticle, true);
+    assert.equal(guess.expectedArticle, "la");
+  });
+
+  it("recognizes colloquial aliases like anglais, hollandais, usa", () => {
+    assert.equal(matchAnswer("anglais")?.id, "royaume-uni");
+    assert.equal(matchAnswer("hollandais")?.id, "pays-bas");
+    assert.equal(matchAnswer("usa")?.id, "etats-unis");
+  });
+});

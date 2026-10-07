@@ -27,22 +27,59 @@ function buildIndex() {
   };
 
   for (const country of COUNTRIES) {
+    // Country with its grammatical article
     remember(country.articleName, country.id, "country");
+    // Country without article (bare name)
+    remember(country.name, country.id, "country");
+    // All aliases & colloquial variations
     for (const alias of country.aliases) {
       remember(alias, country.id, "country");
     }
+    // Masculine & feminine nationalities
     remember(country.nationalityM, country.id, "nationality");
     remember(country.nationalityF, country.id, "nationality");
   }
-  return index;
+
+  // Also index wrong-article variants for pedagogical guidance
+  const wrongArticleMap = new Map();
+  for (const country of COUNTRIES) {
+    const wrongArticles = ["le", "la", "l", "les"].filter(
+      (a) => a !== normalizeAnswer(country.article),
+    );
+    for (const wa of wrongArticles) {
+      const wrongKey = `${wa} ${normalizeAnswer(country.name)}`;
+      if (!index.has(wrongKey)) {
+        wrongArticleMap.set(wrongKey, {
+          id: country.id,
+          expectedArticle: country.article,
+        });
+      }
+    }
+  }
+
+  return { index, wrongArticleMap };
 }
 
-const ANSWER_INDEX = buildIndex();
+const { index: ANSWER_INDEX, wrongArticleMap: WRONG_ARTICLES } = buildIndex();
 
 export function matchAnswer(raw) {
   const key = normalizeAnswer(raw);
   if (!key) return null;
-  return ANSWER_INDEX.get(key) ?? null;
+  const match = ANSWER_INDEX.get(key);
+  if (match) return match;
+
+  // Check if student typed the country with the wrong article
+  const wrong = WRONG_ARTICLES.get(key);
+  if (wrong) {
+    return {
+      id: wrong.id,
+      kind: "country",
+      wrongArticle: true,
+      expectedArticle: wrong.expectedArticle,
+    };
+  }
+
+  return null;
 }
 
 export function newRound() {
@@ -55,6 +92,7 @@ export function newRound() {
     finishedAt: null,
     lastFoundId: null,
     lastFoundKind: null,
+    lastWrongArticle: false,
   };
 }
 
@@ -69,6 +107,7 @@ export function startRound(round, now = Date.now()) {
     found: [],
     lastFoundId: null,
     lastFoundKind: null,
+    lastWrongArticle: false,
   };
 }
 
@@ -114,6 +153,7 @@ export function applyGuess(round, raw) {
     found: [...round.found, match.id],
     lastFoundId: match.id,
     lastFoundKind: match.kind,
+    lastWrongArticle: Boolean(match.wrongArticle),
   };
   const complete = next.found.length >= COUNTRY_IDS.length;
   return {
@@ -121,6 +161,8 @@ export function applyGuess(round, raw) {
     result: "hit",
     country: COUNTRY_BY_ID[match.id],
     kind: match.kind,
+    wrongArticle: Boolean(match.wrongArticle),
+    expectedArticle: match.expectedArticle ?? null,
   };
 }
 
