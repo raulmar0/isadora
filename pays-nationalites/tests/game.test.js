@@ -252,6 +252,7 @@ describe("explainMiss", () => {
 
   it("removes a foreign article and a plural before naming the language", () => {
     assert.deepEqual(explainMiss("los franceses"), { reason: "spanish" });
+    assert.deepEqual(explainMiss("venezolana"), { reason: "spanish" });
     assert.deepEqual(explainMiss("las francesas"), { reason: "spanish" });
     assert.deepEqual(explainMiss("la Alemania"), { reason: "spanish" });
     assert.deepEqual(explainMiss("el Brasil"), { reason: "spanish" });
@@ -272,6 +273,7 @@ describe("explainMiss", () => {
     assert.deepEqual(explainMiss("iranienne"), { reason: "elsewhere" });
     assert.deepEqual(explainMiss("la Russie"), { reason: "elsewhere" });
     assert.deepEqual(explainMiss("angolaise"), { reason: "elsewhere" });
+    assert.deepEqual(explainMiss("tunisienne"), { reason: "elsewhere" });
   });
 
   it("calls a one-letter slip a spelling mistake", () => {

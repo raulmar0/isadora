@@ -786,7 +786,14 @@ dialog::backdrop { background: rgba(40, 73, 103, 0.4); }
   .flags-bottom { grid-area: bottom; grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .flags-left { grid-area: left; grid-template-rows: repeat(6, minmax(0, 1fr)); }
   .flags-right { grid-area: right; grid-template-rows: repeat(6, minmax(0, 1fr)); }
-  .card { container-type: inline-size; }
+  /* Small laptops leave the longest word, « vénézuélienne », a few pixels:
+     the flag, gap and padding give them up before the text does. */
+  :root { --flag-w: clamp(30px, 2.6vw, 60px); }
+  .card {
+    container-type: inline-size;
+    gap: clamp(6px, 0.8vw - 2px, 14px);
+    padding-inline: clamp(7px, 0.9vw - 1px, 14px);
+  }
   .card-text { font-size: clamp(13px, 6.4cqi, 22px); }
   .board-map {
     position: static;
@@ -909,8 +916,8 @@ dialog::backdrop { background: rgba(40, 73, 103, 0.4); }
 }
 
 @media (max-width: 380px) {
-  :root { --flag-w: 30px; }
-  .card { gap: 6px; }
+  :root { --flag-w: 30px; --card-font: 13px; }
+  .card { gap: 6px; padding: 8px 7px; }
   .bar-title { font-size: 17px; }
   .round-button { width: 36px; height: 36px; }
   .segment span { padding: 8px 11px; }

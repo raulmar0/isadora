@@ -24,7 +24,7 @@ const file = (path) => pathToFileURL(join(game, path)).href;
 // between the Americas, Europe and Africa.
 const VIEW = { x: 178, y: 52, width: 480, height: 320 };
 const FOUND = ['fr', 'br', 'sn', 'ca', 'es', 'ma'];
-const TARGETS = ['us', 'mx', 'ar', 'pt', 'gb', 'it', 'de', 'be', 'nl', 'ch', 'dz', 'tn', 'ci', 'gr'];
+const TARGETS = ['us', 'mx', 'ar', 'pt', 'gb', 'it', 'de', 'be', 'nl', 'ch', 'dz', 've', 'ci', 'gr'];
 
 const shapes = [...FOUND, ...TARGETS]
   .map((code) => `<path class="${FOUND.includes(code) ? 'found' : 'target'}" d="${WORLD.countries[code]}"/>`)

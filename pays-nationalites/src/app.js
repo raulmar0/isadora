@@ -154,9 +154,9 @@ function card(country) {
 
 const SIDE_NAMES = {
   top: "Drapeaux d’Europe",
-  left: "Drapeaux des Amériques et du Portugal",
+  left: "Drapeaux des Amériques",
   right: "Drapeaux d’Europe du Sud, d’Asie et d’Océanie",
-  bottom: "Drapeaux d’Espagne et d’Afrique",
+  bottom: "Drapeaux du Portugal, d’Espagne et d’Afrique",
 };
 
 function flagList(side) {

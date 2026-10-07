@@ -142,7 +142,18 @@ const DATA = [
     aliases: [],
   },
 
-  // --- Bottom: Spain and Africa ---
+  // --- Bottom: Portugal, Spain and Africa ---
+  {
+    id: "portugal",
+    code: "pt",
+    article: "le",
+    name: "Portugal",
+    nationalityM: "portugais",
+    nationalityF: "portugaise",
+    side: "bottom",
+    continent: "europe",
+    aliases: [],
+  },
   {
     id: "espagne",
     code: "es",
@@ -198,19 +209,8 @@ const DATA = [
     continent: "afrique",
     aliases: [],
   },
-  {
-    id: "tunisie",
-    code: "tn",
-    article: "la",
-    name: "Tunisie",
-    nationalityM: "tunisien",
-    nationalityF: "tunisienne",
-    side: "bottom",
-    continent: "afrique",
-    aliases: [],
-  },
 
-  // --- Left: the Americas, then Portugal beside Spain ---
+  // --- Left: the Americas ---
   {
     id: "canada",
     code: "ca",
@@ -246,6 +246,17 @@ const DATA = [
     aliases: [],
   },
   {
+    id: "venezuela",
+    code: "ve",
+    article: "le",
+    name: "Venezuela",
+    nationalityM: "vénézuélien",
+    nationalityF: "vénézuélienne",
+    side: "left",
+    continent: "amerique",
+    aliases: [],
+  },
+  {
     id: "bresil",
     code: "br",
     article: "le",
@@ -265,17 +276,6 @@ const DATA = [
     nationalityF: "argentine",
     side: "left",
     continent: "amerique",
-    aliases: [],
-  },
-  {
-    id: "portugal",
-    code: "pt",
-    article: "le",
-    name: "Portugal",
-    nationalityM: "portugais",
-    nationalityF: "portugaise",
-    side: "left",
-    continent: "europe",
     aliases: [],
   },
 ];

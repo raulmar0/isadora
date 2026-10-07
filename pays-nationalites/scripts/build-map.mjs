@@ -26,7 +26,7 @@ const output = fileURLToPath(new URL("../src/map-data.js", import.meta.url));
 // ISO 3166-1 numeric (Natural Earth ids) → the alpha-2 codes used in countries.js.
 const CODES = {
   124: "ca", 826: "gb", 528: "nl", 56: "be", 276: "de", 756: "ch", 300: "gr", 156: "cn",
-  392: "jp", 356: "in", 36: "au", 788: "tn", 12: "dz", 504: "ma", 686: "sn", 384: "ci",
+  392: "jp", 356: "in", 36: "au", 862: "ve", 12: "dz", 504: "ma", 686: "sn", 384: "ci",
   32: "ar", 76: "br", 840: "us", 484: "mx", 620: "pt", 724: "es", 250: "fr", 380: "it",
 };
 const ANTARCTICA = 10;
@@ -38,13 +38,13 @@ const WORLD_LABELS = {
   ca: [-103, 60.5, "c"],
   us: [-99, 39.5, "c"],
   mx: [-104, 23.5, "c"],
+  ve: [-80.5, 9, "r"],
   br: [-51.5, -9, "c"],
   ar: [-50, -40, "l"],
   sn: [-26, 14.5, "r"],
   ci: [-7, -2.5, "c"],
   ma: [-17, 29.5, "r"],
   dz: [3, 23.2, "c"],
-  tn: [17, 31.6, "l"],
   in: [79, 21, "c"],
   cn: [101, 34.5, "c"],
   jp: [147, 37, "l"],
@@ -242,7 +242,7 @@ const europeMap = project({
   height: europeHeight,
   labels: EUROPE_LABELS,
   labelUnits: true,
-  only: ["gb", "pt", "es", "fr", "be", "nl", "de", "ch", "it", "gr", "ma", "dz", "tn"],
+  only: ["gb", "pt", "es", "fr", "be", "nl", "de", "ch", "it", "gr", "ma", "dz"],
 });
 
 // Where the zoom sits on the world map: the empty South Pacific, bottom left.
