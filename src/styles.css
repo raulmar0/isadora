@@ -34,6 +34,7 @@ button{touch-action:manipulation}
 .activity-card{display:block;background:#fffdf7;border-radius:15px;border:1px solid #dedfd2;overflow:hidden;box-shadow:0 8px 26px -15px #4d624638;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
 .activity-card:hover{transform:translateY(-5px) rotate(-.5deg);box-shadow:0 18px 34px -18px #384d4e57;border-color:#aebcb2}
 .activity-card:active{transform:translateY(-1px)}
+.activity-card+.activity-card{margin-top:20px}
 .activity-art{position:relative;aspect-ratio:2.05;overflow:hidden;background:#f0deaa}
 .activity-art>img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
 .activity-card:hover .activity-art>img{transform:scale(1.04)}
@@ -63,9 +64,10 @@ button{touch-action:manipulation}
 @media(forced-colors:active){.world-poster{mix-blend-mode:normal}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.activity-card:hover,.activity-card:hover .activity-art>img,.activity-card:hover .activity-arrow{transform:none}}
 
-/* Keep the only published app in reach on small screens. */
+/* Keep the published apps in reach on small screens. */
 @media(max-width:760px){
   .world-region{margin-bottom:22px}
+  .activity-card+.activity-card{margin-top:16px}
   .activity-card{display:grid;grid-template-columns:34% minmax(0,1fr)}
   .activity-art{aspect-ratio:auto;min-height:160px}
   .activity-art>img{object-position:57% center}
