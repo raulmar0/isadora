@@ -832,6 +832,18 @@ app.addEventListener("compositionend", (event) => {
   if (event.target.id === "guess") onTyping(event.target);
 });
 
+// The answers have to be typed: no copying them off the cards, no pasting or
+// dropping text into the box.
+for (const type of ["copy", "cut", "paste", "drop"]) {
+  app.addEventListener(type, (event) => event.preventDefault());
+}
+
+app.addEventListener("beforeinput", (event) => {
+  if (event.inputType === "insertFromPaste" || event.inputType === "insertFromDrop") {
+    event.preventDefault();
+  }
+});
+
 // Pointing at a flag (mouse, keyboard focus, or a tap on the answer key)
 // shows where its country is.
 function point(card) {
